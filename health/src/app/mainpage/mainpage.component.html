@@ -1,0 +1,9 @@
+<p>
+  mainpage works!
+</p>
+
+<md-grid-list cols="4" rowHeight="100px">
+    <md-card *ngFor="let recipe of recipes">{{recipe.title.value}}</md-card>  
+</md-grid-list>
+
+{{errorMessage}}
