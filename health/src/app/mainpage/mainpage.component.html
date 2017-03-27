@@ -1,9 +1,22 @@
-<p>
-  mainpage works!
-</p>
 
-<md-grid-list cols="4" rowHeight="100px">
-    <md-card *ngFor="let recipe of recipes">{{recipe.title.value}}</md-card>  
-</md-grid-list>
+<!--Add a search bar-->
 
-{{errorMessage}}
+
+<div fxLayoutAlign="center start"  fxLayout="row" fxLayout.xs="column">
+  <md-card fxFlex.sm="50" fxFlex.md="33" fxFlex.gt-md="25" *ngFor="let recipe of recipes" class="recipecard">
+    <md-card-header>
+      <md-card-title>{{recipe.title[0].value}}</md-card-title>
+
+    </md-card-header>
+    <img md-card-image src="{{recipe.images[0].url}}">
+    <md-card-content>
+      <p [innerHTML]="recipe.body[0].summary">
+        
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button routerLink="recipe/{{recipe.uuid[0].value}}">Go to recipe</button>
+    </md-card-actions>
+  </md-card>  
+</div>
+

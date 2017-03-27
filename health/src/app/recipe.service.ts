@@ -7,23 +7,36 @@ import { Recipe } from './recipe';
 
 @Injectable()
 export class RecipeService {
-  private recipesUrl = 'http://22c9b14a.ngrok.io/drupal-health/recipe/1';  // URL to web API
+  private recipesUrl = 'http://localhost:8888/drupal-health/recipe/';  // URL to web API
 
   constructor(private http: Http) { }
 
-  getRecipes(): Observable<Recipe[]> {
-    return this.http.get(this.recipesUrl)
-                    .map(this.extractData)
+  getRecipe(uuid:string): Observable<Recipe> {
+    return this.http.get(this.recipesUrl+uuid)
+                    .map(this.extractRecipe)
                     .catch(this.handleError);
   }
 
-  private extractData(res: Response) {
+  getSummaries(): Observable<Recipe[]> {
+    return this.http.get(this.recipesUrl+"all")
+                    .map(this.extractSummaries)
+                    .catch(this.handleError);
+  }
+
+  private extractRecipe(res: Response) {
+    let recipe : Recipe;
+    let response = res.json()[0];
+    recipe = new Recipe(response.uuid, response.title, response.body, response.field_foodimage);
+
+    return recipe || { };
+  }
+
+  private extractSummaries(res: Response) {
     let recipes : Recipe[] = [];
     for(let recipe of res.json())
     {
-      recipes.push(new Recipe(recipe.title, recipe.body));
+      recipes.push(new Recipe(recipe.uuid, recipe.title, recipe.body, recipe.field_foodimage));
     }
-    console.log(recipes);
     return recipes || { };
   }
 

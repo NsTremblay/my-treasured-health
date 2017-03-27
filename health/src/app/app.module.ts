@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
@@ -10,15 +11,18 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { MaterialModule } from '@angular/material';
 
 import { RecipeService} from './recipe.service';
+import { RecipeComponent } from './recipe/recipe.component';
 
 const appRoutes: Routes = [
-  { path: '', component: MainpageComponent }
+  { path: '', component: MainpageComponent },
+  { path: 'recipe/:uuid', component: RecipeComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainpageComponent
+    MainpageComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ const appRoutes: Routes = [
     HttpModule,
     JsonpModule,
     RouterModule.forRoot(appRoutes),
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

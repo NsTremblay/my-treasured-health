@@ -6,7 +6,7 @@ import {Recipe} from '../recipe';
 @Component({
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
-  styleUrls: ['./mainpage.component.css']
+  styleUrls: ['./mainpage.component.scss']
 })
 export class MainpageComponent implements OnInit {
 
@@ -19,7 +19,7 @@ export class MainpageComponent implements OnInit {
   constructor(private recipeService: RecipeService) { }
   
   ngOnInit() {
-    this.recipeService.getRecipes().subscribe(
+    this.recipeService.getSummaries().subscribe(
       recipes => this.recipes = recipes,
       error => this.errorMessage = <any>error
     );
