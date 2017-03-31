@@ -7,7 +7,7 @@ import { Recipe } from './recipe';
 
 @Injectable()
 export class RecipeService {
-  private recipesUrl = 'http://localhost:8888/drupal-health/recipe/';  // URL to web API
+  private recipesUrl = 'http://68e4dd1f.ngrok.io/drupal-health/recipe/';  // URL to web API
 
   constructor(private http: Http) { }
 
