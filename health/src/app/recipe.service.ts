@@ -11,6 +11,7 @@ import { RecipeSummary } from './RecipeSummary';
 export class RecipeService {
   private recipesUrl = 'http://162.243.196.50/api/health/recipe/';  // URL to web API
 
+
   constructor(private http: Http) { }
 
   getRecipe(uuid:string): Observable<Recipe> {

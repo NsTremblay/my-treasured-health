@@ -9,12 +9,21 @@
     <img *ngIf="recipe.images[0]" md-card-image src="{{recipe.images[0].url}}">
     <md-card-content>
       <p *ngIf="recipe.body[0]" [innerHTML]="recipe.body[0].summary">
+
       </p>
     </md-card-content>
     <md-card-actions>
       <button md-button routerLink="recipe/{{recipe.uuid[0].value}}">Go to recipe</button>
     </md-card-actions>
-  </md-card>  
+  </md-card>
+
+
+
+
+
+
+
+
 </div>
 
 
