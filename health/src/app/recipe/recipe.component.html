@@ -1,3 +1,15 @@
-<h1>{{recipeInfo.title["0"].value}}</h1>
+<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Muli" rel="stylesheet">
 
-<p ><{{uuid}}</p>
+
+<!--wait for the recipe to be loaded-->
+<md-card *ngIf="recipeInfo">
+  <h1 *ngIf="recipeInfo.title[0]">{{recipeInfo.title[0].value}}</h1>
+  <p *ngIf="recipeInfo.body[0]" [innerHTML]="recipeInfo.body[0].value"></p>
+  <h2>Ingredients</h2>
+  <p [innerHTML]="recipeInfo.field_ingredients[0].value"></p>
+  <h2>Instructions</h2>
+  <p [innerHTML]="recipeInfo.field_instructions[0].value"></p>
+
+</md-card>
+
+

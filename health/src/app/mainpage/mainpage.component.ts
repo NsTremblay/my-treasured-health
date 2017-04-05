@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService} from '../recipe.service';
 
-import {Recipe} from '../recipe';
+import {RecipeSummary} from '../recipeSummary';
 
 @Component({
   selector: 'app-mainpage',
@@ -12,17 +12,19 @@ export class MainpageComponent implements OnInit {
 
   errorMessage:string;
 
-  recipes: Recipe[];
+  recipes: RecipeSummary[];
 
   mode = 'Observable';
 
-  constructor(private recipeService: RecipeService) { }
-  
-  ngOnInit() {
+  constructor(private recipeService: RecipeService) { 
     this.recipeService.getSummaries().subscribe(
       recipes => this.recipes = recipes,
       error => this.errorMessage = <any>error
     );
+  }
+  
+  ngOnInit() {
+    
   }
 
 }

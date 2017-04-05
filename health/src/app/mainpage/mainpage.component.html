@@ -1,17 +1,14 @@
 
 <!--Add a search bar-->
-
-
-<div fxLayoutAlign="center start"  fxLayout="row" fxLayout.xs="column">
-  <md-card fxFlex.sm="50" fxFlex.md="33" fxFlex.gt-md="25" *ngFor="let recipe of recipes" class="recipecard">
+<div fxLayout="column"  fxLayoutAlign="space-around center">
+  <md-card class="recipeCard" *ngFor="let recipe of recipes"  >
     <md-card-header>
-      <md-card-title>{{recipe.title[0].value}}</md-card-title>
+    <md-card-title>{{recipe.title[0].value}}</md-card-title>
 
     </md-card-header>
-    <img md-card-image src="{{recipe.images[0].url}}">
+    <img *ngIf="recipe.images[0]" md-card-image src="{{recipe.images[0].url}}">
     <md-card-content>
-      <p [innerHTML]="recipe.body[0].summary">
-        
+      <p *ngIf="recipe.body[0]" [innerHTML]="recipe.body[0].summary">
       </p>
     </md-card-content>
     <md-card-actions>
@@ -19,4 +16,7 @@
     </md-card-actions>
   </md-card>  
 </div>
+
+
+  
 

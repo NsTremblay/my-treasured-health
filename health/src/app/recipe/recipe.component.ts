@@ -13,25 +13,25 @@ import {Recipe} from '../recipe';
 export class RecipeComponent implements OnInit {
 
   uuid :string;
-  recipeInfo :Recipe;
-  errorMessage:string;
+  recipeInfo : Recipe;
+  errorMessage: string;
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService) {}
+  mode = 'Observable';
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
 
     this.route.params.subscribe(params => {
       this.uuid = params['uuid']; 
-      console.log(this.uuid);
+
       // In a real app: dispatch action to load the details here.
-      this.recipeService.getRecipe(this.uuid ).subscribe(
+      this.recipeService.getRecipe(this.uuid).subscribe(
         recipe => this.recipeInfo = recipe,
         error => this.errorMessage = <any>error
       );
     });
-    
+  }
 
-
+  ngOnInit() {
 
 
   }

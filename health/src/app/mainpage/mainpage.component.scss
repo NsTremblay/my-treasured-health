@@ -1,4 +1,16 @@
-.recipecard{
 
-    margin:4px;
+
+.recipeCard{margin :5px;}
+
+
+@media screen and (min-width: 600px) {
+    .recipeCard{
+        width:400px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .recipeCard{
+        width:90%;
+    }
 }
