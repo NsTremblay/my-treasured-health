@@ -12,9 +12,11 @@ import { MaterialModule } from '@angular/material';
 
 import { RecipeService} from './recipe.service';
 import { RecipeComponent } from './recipe/recipe.component';
+import { RecipetypePipe } from './recipetype.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: MainpageComponent },
+  { path: ':type', component: MainpageComponent },
   { path: 'recipe/:uuid', component: RecipeComponent}
 ];
 
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MainpageComponent,
-    RecipeComponent
+    RecipeComponent,
+    RecipetypePipe
   ],
   imports: [
     BrowserModule,

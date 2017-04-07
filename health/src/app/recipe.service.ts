@@ -30,7 +30,7 @@ export class RecipeService {
   private extractRecipe(res: Response) {
     let recipeInfo : Recipe;
     let response = res.json()[0];
-    recipeInfo = new Recipe(response.uuid, response.title, response.body, response.field_foodimage);
+    recipeInfo = new Recipe(response.uuid, response.title, response.body, response.field_foodimage, response.field_type);
     console.log(response);
     return response || { };
   }
@@ -39,7 +39,7 @@ export class RecipeService {
     let recipes : RecipeSummary[] = [];
     for(let recipe of res.json())
     {
-      recipes.push(new RecipeSummary(recipe.uuid, recipe.title, recipe.body, recipe.field_foodimage));
+      recipes.push(new RecipeSummary(recipe.uuid, recipe.title, recipe.body, recipe.field_foodimage, recipe.field_type));
     }
     return recipes || { };
   }

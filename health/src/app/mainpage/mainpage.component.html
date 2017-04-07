@@ -1,29 +1,19 @@
 
 <!--Add a search bar-->
-<div fxLayout="column"  fxLayoutAlign="space-around center">
-  <md-card class="recipeCard" *ngFor="let recipe of recipes"  >
+<div fxLayout="column"  fxLayoutAlign="space-around center" *ngIf="recipes">
+  <md-card class="recipeCard" *ngFor="let recipe of recipes | recipetype:recipeTypeString">
     <md-card-header>
     <md-card-title>{{recipe.title[0].value}}</md-card-title>
 
     </md-card-header>
     <img *ngIf="recipe.images[0]" md-card-image src="{{recipe.images[0].url}}">
     <md-card-content>
-      <p *ngIf="recipe.body[0]" [innerHTML]="recipe.body[0].summary">
-
-      </p>
+      <p *ngIf="recipe.body[0]" [innerHTML]="recipe.body[0].summary"></p>
     </md-card-content>
     <md-card-actions>
-      <button md-button routerLink="recipe/{{recipe.uuid[0].value}}">Go to recipe</button>
+      <button md-button routerLink="/recipe/{{recipe.uuid[0].value}}">Go to recipe</button>
     </md-card-actions>
   </md-card>
-
-
-
-
-
-
-
-
 </div>
 
 

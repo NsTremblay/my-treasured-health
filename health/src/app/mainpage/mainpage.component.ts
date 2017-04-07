@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService} from '../recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 import {RecipeSummary} from '../recipeSummary';
 
@@ -16,7 +17,14 @@ export class MainpageComponent implements OnInit {
 
   mode = 'Observable';
 
-  constructor(private recipeService: RecipeService) { 
+  recipeTypeString :string; 
+
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute) { 
+
+    this.route.params.subscribe(params => {
+      this.recipeTypeString = params['type']; 
+    });
+
     this.recipeService.getSummaries().subscribe(
       recipes => this.recipes = recipes,
       error => this.errorMessage = <any>error

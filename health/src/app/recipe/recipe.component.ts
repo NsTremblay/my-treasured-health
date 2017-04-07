@@ -21,6 +21,7 @@ export class RecipeComponent implements OnInit {
   constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
 
     this.route.params.subscribe(params => {
+      
       this.uuid = params['uuid']; 
 
       // In a real app: dispatch action to load the details here.
