@@ -11,7 +11,7 @@
       <p *ngIf="recipe.body[0]" [innerHTML]="recipe.body[0].summary"></p>
     </md-card-content>
     <md-card-actions>
-      <button md-button routerLink="/recipe/{{recipe.uuid[0].value}}">Go to recipe</button>
+      <button md-raised-button routerLink="recipe/{{recipe.uuid[0].value}}" color="primary">Go to recipe</button>
     </md-card-actions>
   </md-card>
 </div>
