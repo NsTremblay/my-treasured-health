@@ -7,8 +7,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { MaterialModule } from './material.module';
 
-import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RecipeService} from './recipe.service';
 import { RecipeComponent } from './recipe/recipe.component';
@@ -17,7 +18,7 @@ import { RecipetypePipe } from './recipetype.pipe';
 const appRoutes: Routes = [
   { path: '', component: MainpageComponent },
   { path: ':type', component: MainpageComponent },
-  { path: 'recipe/:uuid', component: RecipeComponent}
+  { path: ':type/recipe/:uuid', component: RecipeComponent}
 ];
 
 @NgModule({
@@ -33,8 +34,9 @@ const appRoutes: Routes = [
     HttpModule,
     JsonpModule,
     RouterModule.forRoot(appRoutes),
-    MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

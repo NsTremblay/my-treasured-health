@@ -4,8 +4,18 @@ md-toolbar{font-family: 'Poiret One', cursive;font-size:30px;}
   flex: 1 1 auto;
 }
 .top-button{
-    height:100%;
+    height:50px;
 }
 .list-items {
     top:3em;
+}
+.topBar{
+    width:100%;
+    text-align: center;
+    background-color: white;
+}
+
+.AppTile{
+    font-size: 3em;
+    font-family: 'Indie Flower', cursive;    
 }

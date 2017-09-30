@@ -6,10 +6,9 @@
   <h1 *ngIf="recipeInfo.title[0]">{{recipeInfo.title[0].value}}</h1>
   <p *ngIf="recipeInfo.body[0]" [innerHTML]="recipeInfo.body[0].value"></p>
   <h2>Ingredients</h2>
-  <p [innerHTML]="recipeInfo.field_ingredients[0].value"></p>
+  <p *ngIf="recipeInfo.field_ingredients.length>0" [innerHTML]="recipeInfo.field_ingredients[0].value"></p>
   <h2>Instructions</h2>
-  <p [innerHTML]="recipeInfo.field_instructions[0].value"></p>
-
+  <p *ngIf="recipeInfo.field_instructions.length>0" [innerHTML]="recipeInfo.field_instructions[0].value"></p>
 </md-card>
 
 

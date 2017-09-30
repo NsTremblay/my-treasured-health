@@ -7,10 +7,25 @@
     .recipeCard{
         width:400px;
     }
+    .title{
+        width:400px;
+    }
 }
 
 @media screen and (max-width: 600px) {
     .recipeCard{
         width:90%;
     }
+    .title{
+        width:100%;
+        padding :30px;
+        margin-left:40px; 
+    }
+}
+
+.title{
+    font-size: 2em;
+    font-family: 'Indie Flower', cursive;  
+    background-color: white;
+    padding :15px;
 }

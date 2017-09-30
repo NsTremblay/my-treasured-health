@@ -1,5 +1,5 @@
-@import '~@angular/material/core/theming/all-theme';
-
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gloria+Hallelujah|Indie+Flower');
 // NOTE: Theming is currently experimental and not yet publically released!
 
 @include mat-core();

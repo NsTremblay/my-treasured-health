@@ -9,13 +9,12 @@ import { RecipeSummary } from './RecipeSummary';
 
 @Injectable()
 export class RecipeService {
-  private recipesUrl = 'http://162.243.196.50/api/health/recipe/';  // URL to web API
-
+  private recipesUrl = 'http://52.168.135.28/api/health/recipe/';  // URL to web API
+  private healthAPI = 'http://52.168.135.28/api/health/';
 
   constructor(private http: Http) { }
 
   getRecipe(uuid:string): Observable<Recipe> {
-    console.log(this.recipesUrl+uuid);
     return this.http.get(this.recipesUrl+uuid)
                     .map(this.extractRecipe)
                     .catch(this.handleError);
@@ -31,7 +30,6 @@ export class RecipeService {
     let recipeInfo : Recipe;
     let response = res.json()[0];
     recipeInfo = new Recipe(response.uuid, response.title, response.body, response.field_foodimage, response.field_type);
-    console.log(response);
     return response || { };
   }
 
@@ -56,5 +54,9 @@ export class RecipeService {
     }
     console.error(errMsg);
     return Observable.throw(errMsg);
+  }
+
+  getRecipeWithType(type:string):Observable<Response>{
+    return this.http.get(this.healthAPI+"type/"+type);
   }
 }
